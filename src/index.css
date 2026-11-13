@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --canvas-bg: #F6F1E7;
+    --paper-bg: #FCF9F2;
+    --surface-subtle: #EFE8D8;
+    --ink-primary: #1D1B18;
+    --ink-secondary: #5C5549;
+    --accent-emerald: #185341;
+    --accent-gold: #9A7837;
+    --hairline: rgba(29, 27, 24, 0.1);
+  }
+
+  .dark {
+    --canvas-bg: #0E1113;
+    --paper-bg: #15191C;
+    --surface-subtle: #1D2328;
+    --ink-primary: #EFE9DC;
+    --ink-secondary: #A6A092;
+    --accent-emerald: #3E8E72;
+    --accent-gold: #D0B070;
+    --hairline: rgba(239, 233, 220, 0.1);
+  }
+
+  html {
+    font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--canvas-bg);
+    color: var(--ink-primary);
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-amiri {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+}
+
+.font-scheherazade {
+  font-family: 'Scheherazade New', 'Amiri', serif;
+}
+
+.font-naskh {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+}
+
+.font-cairo {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Realistic book paper grain & spine shadows without heavy GPU filters */
+.book-page-shadow-light {
+  box-shadow:
+    0 20px 50px -18px rgba(32, 24, 12, 0.14),
+    0 4px 16px -4px rgba(32, 24, 12, 0.06),
+    inset -12px 0 24px -16px rgba(105, 82, 42, 0.12);
+}
+
+.dark .book-page-shadow-light {
+  box-shadow:
+    0 24px 54px -18px rgba(0, 0, 0, 0.65),
+    0 4px 18px -4px rgba(0, 0, 0, 0.4),
+    inset -12px 0 24px -16px rgba(0, 0, 0, 0.55);
+}
+
+/* Subtle Islamic paper border pattern */
+.mushaf-double-frame {
+  position: relative;
+}
+
+/* Custom subtle scrollbars for reading area */
+.reader-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.reader-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reader-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(154, 120, 55, 0.25);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
